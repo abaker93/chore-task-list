@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Seaweed+Script&display=swap');
+
+body {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 400;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Seaweed Script', cursive;
+        font-size: 50px;
+        font-weight: 400;
+    }
+
+    &>aside {
+        color: red;
+    }
+    &>main {
+        color: blue;
+    }
+    &>footer {
+        color: green;
+    }
+}

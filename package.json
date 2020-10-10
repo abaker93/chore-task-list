@@ -1,0 +1,29 @@
+{
+  "name": "chore-task-list",
+  "version": "1.0.0",
+  "description": "### Introduction",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abaker93/chore-task-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abaker93/chore-task-list/issues"
+  },
+  "homepage": "https://github.com/abaker93/chore-task-list#readme",
+  "devDependencies": {
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "css-loader": "^4.3.0",
+    "style-loader": "^2.0.0"
+  }
+}
