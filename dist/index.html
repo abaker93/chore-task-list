@@ -1,9 +1,19 @@
 <!doctype html>
 <html>
-  <head>
-	<title>Getting Started</title>
+<head>
+	<title>Today's chore list</title>
 </head>
 <body>
+	<div id="login-modal">
+		<form>
+			<input id="login-email" type="email" placeholder="Email" />
+			<input id="login-password" type="password" placeholder="Password" />
+			<div id="login-btn">Log In</div>
+			<div id="signup-btn">Sign Up</div>
+			<div id="logout-btn" class="hide">Log Out</div>
+		</form>
+	</div>
+
 	<aside>
 		<header>
 			<div>
@@ -30,26 +40,43 @@
 			<h2>today's chore list</h2>
 		</header>
 		<main>
-			<ul>
+			<ul id="chore-list">
 				<li>
-					<span>&square;</span>
 					<span>Mow lawn</span>
-					<span>today</span>
+					<span>10/20/20</span>
 					<span>!!!</span>
 				</li>
 			</ul>
 		</main>
 	</main>
 	<footer>
-		<div>
+		<div id="new-chore-modal-btn">
 			<span>+</span>
 			<span>add a new chore</span>
 		</div>
 		<div>
 			<span>today:</span>
-			<span id="today">January 1, 2020 00:00 AM</span>
+			<span id="today"></span>
 		</div>
 	</footer>
+
+	<div id="new-chore-modal">
+		<form>
+			<label for="new-chore-title">Title</label>
+			<input id="new-chore-title" type="text" placeholder="Title" />
+			<label for="new-chore-desc">Description</label>
+			<textarea id="new-chore-desc" placeholder="Description"></textarea>
+			<label for="new-chore-date">Due Date</label>
+			<input id="new-chore-date" type="date" placeholder="title" />
+			<label for="new-chore-priority">Priority</label>
+			<select id="new-chore-priority">
+				<option value="!">! Low</option>
+				<option value="!!">!! Medium</option>
+				<option value="!!!">!!! High</option>
+			</select>
+			<div id="new-chore-btn" class="btn">Add new chore</div>
+		</form>
+	</div>
 
 	<!--compiled javascript-->
     <script src="./main.js"></script>

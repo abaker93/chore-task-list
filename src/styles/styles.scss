@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Seaweed+Script&display=swap');
+@import 'base/baseIndex';
 
 body {
     font-family: 'Lora', serif;
     font-size: 20px;
     font-weight: 400;
+    background-color: $lt-blue;
 
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Seaweed Script', cursive;
@@ -11,7 +13,10 @@ body {
         font-weight: 400;
     }
 
+    .hide { display: none; }
+
     &>aside {
+        background-color: $md-blue;
         color: red;
     }
     &>main {
@@ -19,5 +24,6 @@ body {
     }
     &>footer {
         color: green;
+        background-color: $lt-gray;
     }
 }
