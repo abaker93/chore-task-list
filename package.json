@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/abaker93/chore-task-list#readme",
   "devDependencies": {
+    "file-loader": "^6.1.1",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
     "webpack": "^4.44.2",

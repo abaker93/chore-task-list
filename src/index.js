@@ -1,9 +1,12 @@
 import './styles/styles.scss';
 import { setDate } from './components/setDate';
+import { asideExpand } from './components/asideExpand';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-// const firebase = require("firebase");
 require("firebase/firestore");
+
+let tasks = [];
+let userID;
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -50,9 +53,10 @@ logoutBtn.addEventListener('click', e => {
 });
 
 // authenticate user
-firebase.auth().onAuthStateChanged(firebaseUser => {
-	if(firebaseUser) {
+firebase.auth().onAuthStateChanged(user => {
+	if(user) {	
 		console.log('logged in');
+		// userID = user.uid;
 		logoutBtn.classList.remove('hide');
 	} else {
 		console.log('logged out');
@@ -60,26 +64,39 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 	}
 });
 
+console.log(firebase.auth().currentUser.uid);
+
 var db = firebase.firestore();
 
+// add new chore to database
 document.getElementById('new-chore-btn').addEventListener('click', () => {
 	const newChoreTitle = document.getElementById('new-chore-title').value;
 	const newChoreDesc = document.getElementById('new-chore-desc').value;
 	const newChoreDate = document.getElementById('new-chore-date').value;
 	const newChorePriority = document.getElementById('new-chore-priority').value;
 
-	// console.log(newChoreTitle, newChoreDesc, newChoreDate, newChorePriority)
-
 	db.collection('tasks').add({
 		title: newChoreTitle,
 		desc: newChoreDesc,
 		date: newChoreDate,
-		priority: newChorePriority
-	})
-	.then(function(docRef) {
-		console.log("Document written with ID: ", docRef.id);
-	})
-	.catch(function(error) {
+		priority: newChorePriority,
+		complete: false
+	}).catch(function(error) {
 		console.error("Error adding document: ", error);
 	});
 });
+
+// read tasks from database
+db.collection(`${userID}/lists/default`)
+	.where("title", "!=", null)
+	.onSnapshot(function(querySnapshot) {
+		querySnapshot.forEach(function(doc) {
+			const title = doc.data().title;
+			const desc = doc.data().desc;
+			const date = doc.data().date;
+			const priority = doc.data().priority;
+			const complete = doc.data().complete;
+			tasks.push({'title': title, 'desc': desc, 'date': date, 'priority': priority, 'complete': complete});
+			console.log(tasks);
+		});
+	});

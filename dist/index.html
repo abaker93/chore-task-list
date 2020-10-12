@@ -4,6 +4,77 @@
 	<title>Today's chore list</title>
 </head>
 <body>
+	<main id="main">
+		<aside id="aside" class="closed">
+			<div id="aside-expand-btn">
+				<img src="./glitter-arrow.svg" />
+			</div>
+			<header>
+				<div id="new-list-modal-btn">
+					<svg viewBox="0 0 25 25"><polygon points="25 10.3 14.7 10.3 14.7 0 10.3 0 10.3 10.3 0 10.3 0 14.7 10.3 14.7 10.3 25 14.7 25 14.7 14.7 25 14.7 "/></svg>
+					<span>add a new list</span>
+				</div>
+			</header>
+			<main>
+				<div>
+					<span>&star;</span>
+					<span>Austin's chore list</span>
+				</div>
+				<div>
+					<span>&star;</span>
+					<span>Anna's chore list</span>
+				</div>
+			</main>
+			<footer>
+				Designed and Developed by <a href="http://annabaker.design" target="_blank">Anna Baker Design</a>
+			</footer>
+		</aside>
+		<section id="list">
+			<header>
+				<h2>today's chore list</h2>
+			</header>
+			<main>
+				<ul id="chore-list">
+					<li>
+						<span>Mow lawn</span>
+						<span>10/20/20</span>
+						<span>!!!</span>
+					</li>
+					<li>
+						<span>Mow lawn</span>
+						<span>10/20/20</span>
+						<span>!!!</span>
+					</li>
+					<li>
+						<span>Mow lawn</span>
+						<span>10/20/20</span>
+						<span>!!!</span>
+					</li>
+					<li>
+						<span>Mow lawn</span>
+						<span>10/20/20</span>
+						<span>!!!</span>
+					</li>
+					<li>
+						<span>Mow lawn</span>
+						<span>10/20/20</span>
+						<span>!!!</span>
+					</li>
+				</ul>
+			</main>
+		</section>
+		<footer id="footer">
+			<div id="new-chore-modal-btn">
+				<svg viewBox="0 0 25 25"><polygon points="25 10.3 14.7 10.3 14.7 0 10.3 0 10.3 10.3 0 10.3 0 14.7 10.3 14.7 10.3 25 14.7 25 14.7 14.7 25 14.7 "/></svg>
+				<span>add a new chore</span>
+			</div>
+			<div id="today-container">
+				<span>today:</span>
+				<span id="today"></span>
+			</div>
+		</footer>
+	</main>
+
 	<div id="login-modal">
 		<form>
 			<input id="login-email" type="email" placeholder="Email" />
@@ -13,52 +84,6 @@
 			<div id="logout-btn" class="hide">Log Out</div>
 		</form>
 	</div>
-
-	<aside>
-		<header>
-			<div>
-				<span>+</span>
-				<span>add a new list</span>
-			</div>
-		</header>
-		<main>
-			<div>
-				<span>&star;</span>
-				<span>Austin's chore list</span>
-			</div>
-			<div>
-				<span>&star;</span>
-				<span>Anna's chore list</span>
-			</div>
-		</main>
-		<footer>
-			Designed and Developed by <a href="http://annabaker.design" target="_blank">Anna Baker Design</a>
-		</footer>
-	</aside>
-	<main>
-		<header>
-			<h2>today's chore list</h2>
-		</header>
-		<main>
-			<ul id="chore-list">
-				<li>
-					<span>Mow lawn</span>
-					<span>10/20/20</span>
-					<span>!!!</span>
-				</li>
-			</ul>
-		</main>
-	</main>
-	<footer>
-		<div id="new-chore-modal-btn">
-			<span>+</span>
-			<span>add a new chore</span>
-		</div>
-		<div>
-			<span>today:</span>
-			<span id="today"></span>
-		</div>
-	</footer>
 
 	<div id="new-chore-modal">
 		<form>
