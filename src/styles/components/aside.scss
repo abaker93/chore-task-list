@@ -1,0 +1,52 @@
+aside#aside {
+	width: 500px;
+	min-height: 100vh;
+	background-color: $md-blue;
+	position: absolute;
+
+	&.closed {
+		left: -500px;
+		
+		#aside-expand-btn { padding: 11px 15px 9px 15px; }
+	}
+
+	&.open {
+		#aside-expand-btn img { transform: rotate(180deg); }
+	}
+
+	#aside-expand-btn {
+		position: absolute;
+		right: -47px;
+		top: 10px;
+		background: $dk-blue;
+		padding: 11px 20px 9px 10px;
+		border-radius: 0 50% 50% 0;
+
+		img { height: 20px; }
+
+	}
+
+	header {
+		background-color: $dk-blue;
+		padding: 20px;
+
+		svg {
+			background-color: $yellow;
+			fill: $lt-gray;
+			height: 25px;
+			border: 10px solid $yellow;
+			border-radius: 50%;
+			vertical-align: middle;
+			margin-right: 15px;
+		}
+
+		span {
+			font-family: 'Seaweed Script', cursive;
+			font-size: 35px;
+			vertical-align: middle;
+			color: $white;
+		}
+
+	}
+
+}

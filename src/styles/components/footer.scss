@@ -1,0 +1,47 @@
+footer#footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: $lt-gray;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 10px 20px;
+	align-items: center;
+	box-sizing: border-box;
+
+	#new-chore-modal-btn {
+		grid-column: 2 / 3;
+		text-align: center;
+
+		svg {
+			background-color: $yellow;
+			fill: $lt-gray;
+			height: 25px;
+			border: 10px solid $yellow;
+			border-radius: 50%;
+			vertical-align: middle;
+			margin-right: 15px;
+		}
+
+		span {
+			font-family: 'Seaweed Script', cursive;
+			font-size: 35px;
+			vertical-align: middle;
+		}
+
+	}
+
+	#today-container {
+		grid-column: 3 / 4;
+		text-align: right;
+
+		span:first-child {
+			font-family: 'Seaweed Script', cursive;
+			font-size: 20px;
+			color: $md-blue;
+		}
+
+	}
+
+}
