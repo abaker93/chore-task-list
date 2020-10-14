@@ -175,9 +175,32 @@ const firebaseFirestore = () => {
 						.then(completeChore)
 						.then(editChore);
 				});
+				
+				removeEditsBtn.addEventListener('click', () => {
+					modal.classList.add('hide');
+					form.reset();
+					readTasks
+						.then(buildChoreList)
+						.then(completeChore)
+						.then(editChore);
+				});
+
+				deleteBtn.addEventListener('click', () => {
+					for (let i=0; i<tasks.length; i++) {
+						if (tasks[i].id == parentID) {
+							tasks.splice(i, 1);
+						}
+					}
+					db.collection(collectionPath).doc(parentID).delete()
+					modal.classList.add('hide');
+					form.reset();
+					readTasks
+						.then(buildChoreList)
+						.then(completeChore)
+						.then(editChore);
+				});
 			});
 		});
-
 	};
 
 	readTasks
