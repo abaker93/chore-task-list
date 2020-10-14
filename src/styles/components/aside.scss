@@ -7,12 +7,30 @@ aside#aside {
 
 	&.closed {
 		left: -500px;
+		transition: left ease-in-out 0.5s;
+		-moz-transition: left ease-in-out 0.5s;
 		
-		#aside-expand-btn { padding: 11px 15px 9px 15px; }
+		#aside-expand-btn {
+			padding: 11px 15px 9px 15px;
+
+			img {
+				transform: rotate(0deg);
+				transition: rotate ease-in-out 0.2s;
+				-moz-transition: rotate ease-in-out 0.2s;
+			}
+		}
 	}
 
 	&.open {
-		#aside-expand-btn img { transform: rotate(180deg); }
+		left: 0;
+		transition: left ease-in-out 0.5s;
+		-moz-transition: left ease-in-out 0.5s;
+
+		#aside-expand-btn img {
+			transition: rotate ease-in-out 0.2s;
+			-moz-transition: rotate ease-in-out 0.2s;
+			transform: rotate(180deg);
+		}
 	}
 
 	#aside-expand-btn {
@@ -30,25 +48,69 @@ aside#aside {
 
 	header {
 		background-color: $dk-blue;
-		padding: 20px;
+		padding: 30px;
 
-		svg {
-			background-color: $yellow;
-			fill: $lt-gray;
-			height: 25px;
-			border: 10px solid $yellow;
-			border-radius: 50%;
-			vertical-align: middle;
-			margin-right: 15px;
+		div {
 			cursor: pointer;
+
+			svg {
+				background-color: $yellow;
+				fill: $lt-gray;
+				height: 25px;
+				border: 10px solid $yellow;
+				border-radius: 50%;
+				vertical-align: middle;
+				margin-right: 15px;
+			}
+		
+			span {
+				font-family: 'Seaweed Script', cursive;
+				font-size: 35px;
+				vertical-align: middle;
+				color: $white;
+			}
+
 		}
 
-		span {
-			font-family: 'Seaweed Script', cursive;
-			font-size: 35px;
-			vertical-align: middle;
-			color: $white;
+	}
+
+	main {
+		padding: 30px;
+
+		div {
+			margin-bottom: 20px;
 			cursor: pointer;
+
+			svg {
+				height: 30px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+	
+			span {
+				font-size: 25px;
+				color: $white;
+				vertical-align: middle;
+			}
+
+		}
+	
+	}
+
+	footer {
+		font-size: 12px;
+		color: $white;
+		position: absolute;
+		bottom: 120px;
+		left: 30px;
+
+		a {
+			color: $white;
+
+			&:hover, &:focus {
+				color: $yellow;
+			}
+
 		}
 
 	}

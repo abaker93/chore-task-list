@@ -16,7 +16,7 @@ const setDate = setInterval(function() {
     if (minute < 10) { minute = '0' + minute; }
     if (second < 10) { second = '0' + second; }
 
-    document.getElementById('today').innerText = `${month} ${day}, ${year} ${hour}:${minute}:${second} ${indicator}`;
+    document.getElementById('today').innerText = `${month} ${day}, ${year} ${hour}:${minute} ${indicator}`;
 }, 500);
 
 export { setDate };

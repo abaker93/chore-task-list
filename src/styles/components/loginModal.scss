@@ -7,8 +7,9 @@
 	display: grid;
 	align-content: center;
 	justify-content: center;
-    background-color: rgba(0,0,0,0.2);
-    z-index: 999;
+    // background-color: rgba(0,0,0,0.2);
+	background-color: $lt-blue;
+	z-index: 999;
 
 	&.hide { display: none; }
 

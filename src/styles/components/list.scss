@@ -71,13 +71,74 @@ section#list {
 			
 			li {
 				display: grid;
-				grid-template-columns: 7fr repeat(2, 1fr);
+				grid-template-columns: 20px 7fr repeat(2, 1fr) 20px;
+				grid-column-gap: 10px;
+				align-items: center;
 				background-image: url('../img/chore-bg.svg');
-				background-size: 100% 100%;
+				background-size: 97% 100%;
 				background-position: center;
+				background-repeat: no-repeat;
 				margin: 20px 0;
 				padding: 10px;
 				font-size: 25px;
+
+				svg.checkbox {
+					height: 20px;
+					fill: $black;
+					cursor: pointer;
+
+					.check { fill: transparent}
+
+				}
+
+				.date {
+					font-size: 15px;
+					color: $dk-gray;
+					text-align: center;
+				}
+
+				.priority {
+					color: $yellow;
+					text-align: center;
+				}
+
+				svg.menu {
+					height: 20px;
+					fill: transparent;
+					cursor: pointer;
+				}
+
+				&:hover {
+
+					svg.menu {
+						fill: $dk-blue;
+						transition: all ease-in-out 0.1s;
+					}
+
+				}
+
+				&.checked {
+					position: relative;
+
+					&:after {
+						content: '';
+						position: absolute;
+						display: block;
+						bottom: 20px;
+						left: 40px;
+						width: 92%;
+						height: 1px;
+						background-color: $black;
+					}
+
+					svg.checkbox {
+
+						.check { fill: $black;}
+
+					}
+
+				}
+
 			}
 
 		}

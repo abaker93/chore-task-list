@@ -8,50 +8,49 @@ body {
 	font-weight: 400;
 	background-color: $lt-blue;
 	color: $black;
-
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Seaweed Script', cursive;
-		font-size: 50px;
-		font-weight: 400;
-		color: $dk-blue;
-		text-align: center;
-	}
-
-	.hide { display: none; }
-	
 	padding-bottom: 80px;
-
-	input, textarea, select {
-		background-color: $white;
-		border: none;
-		font-family: 'Lora', sans-serif;
-		font-size: 20px;
-		padding: 4px 8px;
-	}
-
-	.btn {
-		background-color: $dk-blue;
-		color: $white;
-		padding: 4px 8px;
-		font-family: 'Seaweed Script', cursive;
-		font-size: 25px;
-		width: max-content;
-		margin: 0 auto;
-		cursor: pointer;
-	}
-
-	#logout-btn {
-		background-image: url('../img/logout-bg.svg');
-		background-size: 100% 100%;
-		color: $white;
-		padding: 10px 15px;
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		font-family: 'Seaweed Script', cursive;
-		font-size: 25px;
-	}
-
-	main#main { position: relative; }
-
 }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Seaweed Script', cursive;
+	font-size: 50px;
+	font-weight: 400;
+	color: $dk-blue;
+	text-align: center;
+}
+
+.hide { display: none; }
+
+input, textarea, select {
+	background-color: $white;
+	border: none;
+	font-family: 'Lora', sans-serif;
+	font-size: 20px;
+	padding: 4px 8px;
+}
+
+.btn {
+	background-color: $dk-blue;
+	color: $white;
+	padding: 4px 8px;
+	font-family: 'Seaweed Script', cursive;
+	font-size: 25px;
+	width: max-content;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+#logout-btn {
+	background-image: url('../img/logout-bg.svg');
+	background-size: 100% 100%;
+	color: $white;
+	padding: 10px 15px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-family: 'Seaweed Script', cursive;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+main#main { position: relative; }
