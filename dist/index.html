@@ -5,6 +5,7 @@
 </head>
 <body>
 	<main id="main">
+		<div id="logout-btn" class="hide">log out</div>
 		<aside id="aside" class="closed">
 			<div id="aside-expand-btn">
 				<img src="./glitter-arrow.svg" />
@@ -31,39 +32,21 @@
 		</aside>
 		<section id="list">
 			<header>
+				<img class="decor" src="glitter-star.svg" />
+				<img class="decor" src="glitter-circle.svg" />
+				<img class="decor" src="glitter-circle.svg" />
+				<img class="decor" src="glitter-circle.svg" />
+				<img class="decor" src="glitter-circle.svg" />
 				<h2>today's chore list</h2>
 			</header>
 			<main>
-				<ul id="chore-list">
-					<li>
-						<span>Mow lawn</span>
-						<span>10/20/20</span>
-						<span>!!!</span>
-					</li>
-					<li>
-						<span>Mow lawn</span>
-						<span>10/20/20</span>
-						<span>!!!</span>
-					</li>
-					<li>
-						<span>Mow lawn</span>
-						<span>10/20/20</span>
-						<span>!!!</span>
-					</li>
-					<li>
-						<span>Mow lawn</span>
-						<span>10/20/20</span>
-						<span>!!!</span>
-					</li>
-					<li>
-						<span>Mow lawn</span>
-						<span>10/20/20</span>
-						<span>!!!</span>
-					</li>
-				</ul>
+				<ul id="chore-list"></ul>
 			</main>
 		</section>
 		<footer id="footer">
+			<img class="decor" src="glitter-star.svg" />
+			<img class="decor" src="glitter-circle.svg" />
+			<img class="decor" src="glitter-circle.svg" />
 			<div id="new-chore-modal-btn">
 				<svg viewBox="0 0 25 25"><polygon points="25 10.3 14.7 10.3 14.7 0 10.3 0 10.3 10.3 0 10.3 0 14.7 10.3 14.7 10.3 25 14.7 25 14.7 14.7 25 14.7 "/></svg>
 				<span>add a new chore</span>
@@ -77,29 +60,26 @@
 
 	<div id="login-modal">
 		<form>
+			<h2>log in or sign up</h2>
 			<input id="login-email" type="email" placeholder="Email" />
 			<input id="login-password" type="password" placeholder="Password" />
-			<div id="login-btn">Log In</div>
-			<div id="signup-btn">Sign Up</div>
-			<div id="logout-btn" class="hide">Log Out</div>
+			<div id="login-btn" class="btn">log in</div>
+			<div id="signup-btn" class="btn">sign up</div>
 		</form>
 	</div>
 
-	<div id="new-chore-modal">
+	<div id="new-chore-modal" class="hide">
 		<form>
-			<label for="new-chore-title">Title</label>
-			<input id="new-chore-title" type="text" placeholder="Title" />
-			<label for="new-chore-desc">Description</label>
+			<h2>add a new chore</h2>
+			<input id="new-chore-title" type="text" placeholder="Title" required />
 			<textarea id="new-chore-desc" placeholder="Description"></textarea>
-			<label for="new-chore-date">Due Date</label>
-			<input id="new-chore-date" type="date" placeholder="title" />
-			<label for="new-chore-priority">Priority</label>
-			<select id="new-chore-priority">
-				<option value="!">! Low</option>
-				<option value="!!">!! Medium</option>
-				<option value="!!!">!!! High</option>
+			<input id="new-chore-date" type="date" required />
+			<select id="new-chore-priority" required>
+				<option value="low">Low</option>
+				<option value="medium">Medium</option>
+				<option value="high">High</option>
 			</select>
-			<div id="new-chore-btn" class="btn">Add new chore</div>
+			<div id="new-chore-btn" class="btn">add new chore</div>
 		</form>
 	</div>
 

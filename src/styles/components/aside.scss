@@ -3,6 +3,7 @@ aside#aside {
 	min-height: 100vh;
 	background-color: $md-blue;
 	position: absolute;
+	z-index: 10;
 
 	&.closed {
 		left: -500px;
@@ -21,6 +22,7 @@ aside#aside {
 		background: $dk-blue;
 		padding: 11px 20px 9px 10px;
 		border-radius: 0 50% 50% 0;
+		cursor: pointer;
 
 		img { height: 20px; }
 
@@ -38,6 +40,7 @@ aside#aside {
 			border-radius: 50%;
 			vertical-align: middle;
 			margin-right: 15px;
+			cursor: pointer;
 		}
 
 		span {
@@ -45,6 +48,7 @@ aside#aside {
 			font-size: 35px;
 			vertical-align: middle;
 			color: $white;
+			cursor: pointer;
 		}
 
 	}

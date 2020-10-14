@@ -5,7 +5,8 @@ section#list {
 	header {
 		padding-top: 50px;
 		text-align: center;
-	
+		position: relative;
+
 		h2 {
 			color: $white;
 			position: relative;
@@ -20,9 +21,48 @@ section#list {
 				top: 7px;
 				background-color: $md-blue;
 			}
-
+	
 		}
 
+		img.decor {
+			position: absolute;
+			z-index: 2;
+		
+			&:nth-child(1) {
+				height: 45px;
+				top: 30px;
+				left: 125px;
+				transform: rotate(30deg);
+			}
+	
+			&:nth-child(2) {
+				height: 13px;
+				top: 40px;
+				left: 60px;
+			}
+	
+			&:nth-child(3) {
+				height: 17px;
+				top: 79px;
+				left: 82px;
+				transform: rotate(60deg);
+			}
+
+			&:nth-child(4) {
+				height: 13px;
+				top: 19px;
+				right: 110px;
+			}
+	
+			&:nth-child(5) {
+				height: 9px;
+				top: 35px;
+				right: 135px;
+				transform: rotate(60deg);
+			}
+		
+		}
+		
 	}
 
 	main {

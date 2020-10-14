@@ -43,7 +43,6 @@ const firebaseFirestore = () => {
 				const complete = doc.data().complete;
 				tasks.push({'title': title, 'desc': desc, 'date': date, 'priority': priority, 'complete': complete});
 			});
-			console.log(tasks);
 			buildChoreList();
 		});
 	

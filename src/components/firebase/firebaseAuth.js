@@ -11,7 +11,8 @@ const firebaseAuth = new Promise((resolve, reject) => {
 	const loginBtn = document.getElementById('login-btn');
 	const signupBtn = document.getElementById('signup-btn');
 	const logoutBtn = document.getElementById('logout-btn');
-		
+	const loginForm = document.getElementById('login-modal');
+	
 	// Login authenticated users
 	loginBtn.addEventListener('click', e => {
 			const email = loginEmail.value;
@@ -41,10 +42,12 @@ const firebaseAuth = new Promise((resolve, reject) => {
 	firebase.auth().onAuthStateChanged(user => {
 		if(user) {	
 			logoutBtn.classList.remove('hide');
+			loginForm.classList.add('hide');
 			userID = user.uid;
 			resolve('logged in');
 		} else {
 			logoutBtn.classList.add('hide');
+			loginForm.classList.remove('hide');
 			reject('logged out');
 		}
 	});

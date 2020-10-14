@@ -9,10 +9,12 @@ footer#footer {
 	padding: 10px 20px;
 	align-items: center;
 	box-sizing: border-box;
+	z-index: 20;
 
 	#new-chore-modal-btn {
 		grid-column: 2 / 3;
 		text-align: center;
+		cursor: pointer;
 
 		svg {
 			background-color: $yellow;
@@ -42,6 +44,30 @@ footer#footer {
 			color: $md-blue;
 		}
 
+	}
+
+	img.decor {
+		position: absolute;
+		z-index: 2;
+	
+		&:nth-child(1) {
+			height: 55px;
+			bottom: 45px;
+			left: 60px;
+		}
+
+		&:nth-child(2) {
+			height: 13px;
+			bottom: 69px;
+			left: 145px;
+		}
+
+		&:nth-child(3) {
+			height: 8px;
+			bottom: 32px;
+			left: 138px;
+		}
+	
 	}
 
 }
