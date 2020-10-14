@@ -12,27 +12,6 @@ const db = firebase.firestore();
 const firebaseFirestore = () => {
 	const collectionPath = userID + '/lists/default';
 	
-	// add new chore to database
-	document.getElementById('new-chore-btn').addEventListener('click', () => {
-		const newChoreTitle = document.getElementById('new-chore-title').value;
-		const newChoreDesc = document.getElementById('new-chore-desc').value;
-		const newChoreDate = document.getElementById('new-chore-date').value;
-		const newChorePriority = document.getElementById('new-chore-priority').value;
-		const modal = document.getElementById('new-chore-modal');
-
-		db.collection(collectionPath).add({
-			title: newChoreTitle,
-			desc: newChoreDesc,
-			date: newChoreDate,
-			priority: newChorePriority,
-			complete: false
-		}).catch(function(error) {
-			console.error("Error adding document: ", error);
-		});
-
-		modal.classList.add('hide');
-	});
-	
 	// read tasks from database
 	const readTasks = new Promise((resolve, reject) => {
 		db.collection(collectionPath)
@@ -89,6 +68,40 @@ const firebaseFirestore = () => {
 		}
 	}
 
+	// add new chore to database
+	const newTask = () => {
+		document.getElementById('new-chore-btn').addEventListener('click', () => {
+			const form = document.getElementById('new-chore-form')
+			const newChoreTitle = document.getElementById('new-chore-title').value;
+			const newChoreDesc = document.getElementById('new-chore-desc').value;
+			const newChoreDate = document.getElementById('new-chore-date').value;
+			const newChorePriority = document.getElementById('new-chore-priority').value;
+			const modal = document.getElementById('new-chore-modal');
+
+			form.reset();
+
+			db.collection(collectionPath).add({
+				title: newChoreTitle,
+				desc: newChoreDesc,
+				date: newChoreDate,
+				priority: newChorePriority,
+				complete: false
+			}).catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
+		
+			modal.classList.add('hide');
+			form.reset();
+			readTasks
+				.then(buildChoreList)
+				.then(newTask)
+				.then(completeChore)
+				.then(editChore);
+		});
+
+		
+	}
+
 	const completeChore = () => {
 		const btns = Array.from(document.getElementsByClassName('checkbox'));
 		btns.forEach(btn => {
@@ -110,7 +123,7 @@ const firebaseFirestore = () => {
 		})
 	};
 
-	completeChore();
+	// completeChore();
 
 	const editChore = () => {
 		const btns = Array.from(document.getElementsByClassName('menu'));
@@ -172,6 +185,7 @@ const firebaseFirestore = () => {
 					form.reset();
 					readTasks
 						.then(buildChoreList)
+						.then(newTask)
 						.then(completeChore)
 						.then(editChore);
 				});
@@ -181,6 +195,7 @@ const firebaseFirestore = () => {
 					form.reset();
 					readTasks
 						.then(buildChoreList)
+						.then(newTask)
 						.then(completeChore)
 						.then(editChore);
 				});
@@ -196,6 +211,7 @@ const firebaseFirestore = () => {
 					form.reset();
 					readTasks
 						.then(buildChoreList)
+						.then(newTask)
 						.then(completeChore)
 						.then(editChore);
 				});
@@ -205,8 +221,12 @@ const firebaseFirestore = () => {
 
 	readTasks
 		.then(buildChoreList)
+		.then(newTask)
 		.then(completeChore)
 		.then(editChore);
 };
 
-export { firebaseFirestore };
+export {
+	firebaseFirestore,
+	tasks
+};
