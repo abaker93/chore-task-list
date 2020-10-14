@@ -72,23 +72,25 @@ const firebaseFirestore = () => {
 	const newTask = () => {
 		document.getElementById('new-chore-btn').addEventListener('click', () => {
 			const form = document.getElementById('new-chore-form')
-			const newChoreTitle = document.getElementById('new-chore-title').value;
-			const newChoreDesc = document.getElementById('new-chore-desc').value;
-			const newChoreDate = document.getElementById('new-chore-date').value;
-			const newChorePriority = document.getElementById('new-chore-priority').value;
+			const title = document.getElementById('new-chore-title').value;
+			const desc = document.getElementById('new-chore-desc').value;
+			const date = document.getElementById('new-chore-date').value;
+			const priority = document.getElementById('new-chore-priority').value;
 			const modal = document.getElementById('new-chore-modal');
 
 			form.reset();
 
 			db.collection(collectionPath).add({
-				title: newChoreTitle,
-				desc: newChoreDesc,
-				date: newChoreDate,
-				priority: newChorePriority,
+				title: title,
+				desc: desc,
+				date: date,
+				priority: priority,
 				complete: false
 			}).catch(function(error) {
 				console.error("Error adding document: ", error);
 			});
+
+			tasks.push({'title': title, 'desc': desc, 'date': date, 'priority': priority, 'complete': false})
 		
 			modal.classList.add('hide');
 			form.reset();
