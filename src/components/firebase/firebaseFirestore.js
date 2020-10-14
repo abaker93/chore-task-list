@@ -64,8 +64,6 @@ const firebaseFirestore = () => {
 			}
 		});
 	})
-	
-	
 
 	const buildChoreList = () => {
 		const list = document.getElementById('chore-list');
@@ -99,22 +97,93 @@ const firebaseFirestore = () => {
 
 				if (parent.classList.contains('checked')) {
 					parent.classList.remove('checked');
-					console.log(parent.id);
-					db.collection(collectionPath).doc(parent.id).set({
+					db.collection(collectionPath).doc(parent.id).update({
 						complete: false
-					}, { merge: true });
+					});
 				} else {
 					parent.classList.add('checked');
-					db.collection(collectionPath).doc(parent.id).set({
+					db.collection(collectionPath).doc(parent.id).update({
 						complete: true
-					}, { merge: true });
+					});
 				}
-				
 			})
 		})
 	};
 
-	readTasks.then(buildChoreList).then(completeChore);
+	completeChore();
+
+	const editChore = () => {
+		const btns = Array.from(document.getElementsByClassName('menu'));
+		const modal = document.getElementById('edit-chore-modal');
+		const form = document.getElementById('edit-chore-form');
+
+		const editBtn = document.getElementById('edit-chore-btn');
+		const removeEditsBtn = document.getElementById('remove-edits-btn');
+		const deleteBtn = document.getElementById('delete-chore-btn');
+
+		const oldTitle = document.getElementById('edit-chore-title-label');
+		const oldDesc = document.getElementById('edit-chore-desc-label');
+		const oldDate = document.getElementById('edit-chore-date-label');
+		const oldPriority = document.getElementById('edit-chore-priority-label');
+
+		form.reset();
+
+		btns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const parentID = btn.parentElement.id;
+				const task = tasks.find(task => task.id == parentID);
+
+				oldTitle.innerText = task.title;
+				oldDesc.innerText = task.desc;
+				oldDate.innerText = task.date;
+				oldPriority.innerText = task.priority;
+				modal.classList.remove('hide');
+
+				editBtn.addEventListener('click', () => {
+					const newTitle = document.getElementById('edit-chore-title').value;
+					const newDesc = document.getElementById('edit-chore-desc').value;
+					const newDate = document.getElementById('edit-chore-date').value;
+					const newPriority = document.getElementById('edit-chore-priority').value;
+					if (newTitle !== '') {
+						task.title = newTitle;
+						db.collection(collectionPath).doc(parentID).update({
+							title: newTitle
+						})
+					}
+					if (newDesc !== '') {
+						task.desc = newDesc;
+						db.collection(collectionPath).doc(parentID).update({
+							desc: newDesc
+						})
+					}
+					if (newDate !== '') {
+						task.date = newDate;
+						db.collection(collectionPath).doc(parentID).update({
+							date: newDate
+						})
+					}
+					if (newPriority !== '') {
+						task.priority = newPriority;
+						db.collection(collectionPath).doc(parentID).update({
+							priority: newPriority
+						})
+					}
+					modal.classList.add('hide');
+					form.reset();
+					readTasks
+						.then(buildChoreList)
+						.then(completeChore)
+						.then(editChore);
+				});
+			});
+		});
+
+	};
+
+	readTasks
+		.then(buildChoreList)
+		.then(completeChore)
+		.then(editChore);
 };
 
 export { firebaseFirestore };
