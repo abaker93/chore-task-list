@@ -3,57 +3,62 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 require("firebase/firestore");
 
-let userID = '';
+let UserID = '';
 
 const firebaseAuth = new Promise((resolve, reject) => {
 	const loginEmail = document.getElementById('login-email');
 	const loginPassword = document.getElementById('login-password');
+	
+	const loginModal = document.getElementById('login-modal');
+	const loginForm = document.getElementById('login-form');
+
 	const loginBtn = document.getElementById('login-btn');
 	const signupBtn = document.getElementById('signup-btn');
 	const logoutBtn = document.getElementById('logout-btn');
-	const loginForm = document.getElementById('login-modal');
 	
 	// Login authenticated users
 	loginBtn.addEventListener('click', e => {
-			const email = loginEmail.value;
-			const pass = loginPassword.value;
-			const auth = firebase.auth();
+		const email = loginEmail.value;
+		const pass = loginPassword.value;
+		const auth = firebase.auth();
 		
-			const promise = auth.signInWithEmailAndPassword(email, pass);
-			promise.catch(e => console.log(e.message));
-			});
-		
+		const promise = auth.signInWithEmailAndPassword(email, pass);
+		promise.catch(e => console.log(e.message));
+	});
+	
 	// Sign up with valid email
 	signupBtn.addEventListener('click', e => {
-			const email = loginEmail.value;
-			const pass = loginPassword.value;
-			const auth = firebase.auth();
+		const email = loginEmail.value;
+		const pass = loginPassword.value;
+		const auth = firebase.auth();
 		
-			const promise = auth.createUserWithEmailAndPassword(email, pass);
-			promise.catch(e => console.log(e.message));
-		});
-		
+		const promise = auth.createUserWithEmailAndPassword(email, pass);
+		promise.catch(e => console.log(e.message));
+	});
+	
 	// Logout when authenticated user is logged in
 	logoutBtn.addEventListener('click', e => {
-			firebase.auth().signOut();
-		});
+		firebase.auth().signOut();
+	});
 	
 	// authenticate user
 	firebase.auth().onAuthStateChanged(user => {
 		if(user) {	
 			logoutBtn.classList.remove('hide');
-			loginForm.classList.add('hide');
-			userID = user.uid;
+			loginModal.classList.add('hide');
+			loginForm.reset();
+			UserID = user.uid;
 			resolve('logged in');
 		} else {
 			logoutBtn.classList.add('hide');
-			loginForm.classList.remove('hide');
-			reject('logged out');
+			loginModal.classList.remove('hide');
+			reject('not logged in');
 		}
 	});
+
 });
 
 export {
 	firebaseAuth,
-	userID
+	UserID
 };
