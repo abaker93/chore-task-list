@@ -1,0 +1,72 @@
+#chore-details-modal {
+    height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: grid;
+	align-content: center;
+	justify-content: center;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 100;
+
+    #modal-close {
+        position: relative;
+        cursor: pointer;
+
+        svg {
+            height: 20px;
+            transform: rotate(45deg);
+            fill: $md-blue;
+            position: absolute;
+            top: 70px;
+            right: 70px;
+        }
+
+    }
+
+    .chore-details {
+        background-color: $lt-gray;
+        margin: 50px;
+        padding: 50px 50px 0;
+        min-width: 300px;
+        box-sizing: border-box;
+        overflow-y: auto;
+
+        h2 {
+            margin-bottom: 20px;
+
+            span {
+                font-family: 'Lora', sans-serif;
+                font-size: 40px;
+                color: $black;
+            }
+
+        }
+
+        h3 {
+            grid-column: 1 / 3;
+            font-family: 'Lora', sans-serif;
+            font-size: 15px;
+            font-style: italic;
+            text-align: left;
+            color: $dk-gray;
+            margin-bottom: 10px;
+        }
+
+        p { margin-bottom: 20px;}
+
+        .chore-id {
+            font-size: 10px;
+            font-style: italic;
+            color: $dk-gray;
+        }
+
+        #edit-chore-modal-btn {
+            background-color: $yellow;
+            margin-bottom: 50px;
+        }
+
+    }
+
+}
