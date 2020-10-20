@@ -29,10 +29,11 @@ const editChore = () => {
             </div>
             <form>
                 <h2>edit <span>${title}</span></h2>
+                <p class="chore-id">id: ${parentID}</p>
                 <label for="edit-title">Title</label>
                     <input id="edit-title" type="text" value="${title}">
                 <label for="edit-desc">Desc</label>
-                    <textarea id="edit-desc" value="${desc}"></textarea>
+                    <textarea id="edit-desc">${desc}</textarea>
                 <label for="edit-date">Date</label>
                     <input id="edit-date" type="date" value="${date}">
                 <label for="edit-priority">Priority</label>
@@ -45,12 +46,13 @@ const editChore = () => {
                 <div class="form-buttons">
                     <div id="edit-chore-btn" class="btn">edit chore</div>
                     <div id="remove-edits-btn" class="btn">remove edits</div>
-                    <div class="delete-chore-btn">delete chore</div>
+                    <div id="delete-chore-btn" class="btn">delete chore</div>
                 </div>
             </form>`
 
         document.body.append(modal)
 
+        // Edit chore
         const editChoreBtn = document.getElementById('edit-chore-btn')
         editChoreBtn.addEventListener('click', () => {
             const newTitle = document.getElementById('edit-title').value;
@@ -88,16 +90,56 @@ const editChore = () => {
             displayChores()
         })
 
+        // close edit modal and display details modal
         const closeBtn = document.getElementById('modal-close-2')
         closeBtn.addEventListener('click', () => {
             modal.remove()
             detailModal.remove()
         })
 
+        // close edit modal and display details modal
         const removeEditsBtn = document.getElementById('remove-edits-btn')
         removeEditsBtn.addEventListener('click', () => {
             modal.remove()
             detailModal.remove()
+        })
+
+        // delete chore, opens confirm/reject modal
+        const deleteChoreBtn = document.getElementById('delete-chore-btn')
+        deleteChoreBtn.addEventListener('click', () => {
+            const confirmModal = document.createElement('div')
+            confirmModal.setAttribute('id', 'confirm-delete-modal')
+            confirmModal.innerHTML =
+                `<div>
+                    <h2>are you sure you want to delete <span>${title}</span>?</h2>
+                    <p class="chore-id">id: ${parentID}</p>
+                    <div id="confirm-delete" class="btn">yes</div>
+                    <div id="reject-delete" class="btn">no</div>
+                </div>`
+            document.body.append(confirmModal)
+
+            const confirmDelete = document.getElementById('confirm-delete')
+            const rejectDelete = document.getElementById('reject-delete')
+
+            // don't delete
+            rejectDelete.addEventListener('click', () => {
+                confirmModal.remove()
+            })
+
+            // confirm delete
+            confirmDelete.addEventListener('click', () => {
+                for (let i=0; i<tasks.length; i++) {
+                    if (tasks[i].id == parentID) {
+                        tasks.splice(i, 1);
+                    }
+                }
+
+                db.collection(collectionPath).doc(parentID).delete()
+                confirmModal.remove()
+                modal.remove()
+                detailModal.remove()
+                displayChores()
+            })
         })
     })    
 }
