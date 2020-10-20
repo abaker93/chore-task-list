@@ -1,8 +1,9 @@
 import './styles/styles.scss';
-import { setDate } from './components/setDate';
-import { asideExpand } from './components/asideExpand';
-import { newChore } from './components/newChore';
-import { firebaseAuth } from './components/firebase/firebaseAuth';
-import { firebaseFirestore } from './components/firebase/firebaseFirestore';
 
-firebaseAuth.then(firebaseFirestore);
+import { setDate } from './scripts/setDate';
+import { asideExpand } from './scripts/asideExpand';
+
+import { firebaseAuth } from './scripts/firebase/firebaseAuth';
+import { firebaseFirestore } from './scripts/firebase/firebaseFirestore';
+
+firebaseAuth.then(firebaseFirestore)

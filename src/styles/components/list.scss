@@ -102,7 +102,7 @@ section#list {
 					text-align: center;
 				}
 
-				svg.menu {
+				.chore-details-btn {
 					height: 20px;
 					fill: transparent;
 					cursor: pointer;
@@ -110,7 +110,7 @@ section#list {
 
 				&:hover {
 
-					svg.menu {
+					.chore-details-btn {
 						fill: $dk-blue;
 						transition: all ease-in-out 0.1s;
 					}
