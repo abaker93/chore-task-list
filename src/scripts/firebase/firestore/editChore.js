@@ -3,14 +3,12 @@ import {
     collectionPath,
     tasks
 } from '../firebaseFirestore';
-import { displayChores } from './displayChores'
+// import { displayChores } from './displayChores'
 
 const editChore = () => {
     const btn = document.getElementById('edit-chore-modal-btn')
 
     btn.addEventListener('click', () => {
-        console.log('edit chore')
-
         const parentID = btn.parentElement.id
         const task = tasks.find(task => task.id == parentID)
 
@@ -61,25 +59,21 @@ const editChore = () => {
             const newPriority = document.getElementById('edit-priority').value;
 
             if (newTitle !== '') {
-                task.title = newTitle
                 db.collection(collectionPath).doc(parentID).update({
                     title: newTitle
                 })
             }
             if (newDesc !== '') {
-                task.desc = newDesc
                 db.collection(collectionPath).doc(parentID).update({
                     desc: newDesc
                 })
             }
             if (newDate !== '') {
-                task.date = newDate
                 db.collection(collectionPath).doc(parentID).update({
                     date: newDate
                 })
             }
             if (newPriority !== '') {
-                task.priority = newPriority
                 db.collection(collectionPath).doc(parentID).update({
                     priority: newPriority
                 })
@@ -138,7 +132,7 @@ const editChore = () => {
                 confirmModal.remove()
                 modal.remove()
                 detailModal.remove()
-                displayChores()
+                // displayChores()
             })
         })
     })    
