@@ -1,4 +1,5 @@
 import { tasks } from '../firebaseFirestore'
+import { completeChore } from './completeChore';
 import { displayChoreDetails } from './displayChoreDetails';
 
 // display chores from tasks[]
@@ -33,6 +34,7 @@ const displayChores = () => {
             <svg class="chore-details-btn" viewBox="0 0 20 20"><path d="M10,0c1.6,0,2.9,1.3,2.9,2.9S11.6,5.8,10,5.8c-1.6,0-2.9-1.3-2.9-2.9S8.4,0,10,0z M12.9,10c0,1.6-1.3,2.9-2.9,2.9 c-1.6,0-2.9-1.3-2.9-2.9S8.4,7.1,10,7.1C11.6,7.1,12.9,8.4,12.9,10z M10,14.2c1.6,0,2.9,1.3,2.9,2.9c0,1.6-1.3,2.9-2.9,2.9 c-1.6,0-2.9-1.3-2.9-2.9C7.1,15.5,8.4,14.2,10,14.2z"/></svg>`
         container.append(li)
     }
+    completeChore()
     displayChoreDetails()
 }
 

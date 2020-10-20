@@ -26,6 +26,7 @@ const firebaseFirestore = () => {
         db.collection(collectionPath)
             .where('title', '!=', null)
             .onSnapshot(querySnapshot => {
+                tasks = []
                 querySnapshot.forEach(doc => {
                     const id = doc.id
                     const title = doc.data().title
@@ -52,10 +53,7 @@ const firebaseFirestore = () => {
             })
     })
     
-    readChoresDB
-        .then(displayChores)
-        .then(completeChore)
-        .then(displayChoreDetails)
+    readChoresDB.then(displayChores)
 }
 
 export {

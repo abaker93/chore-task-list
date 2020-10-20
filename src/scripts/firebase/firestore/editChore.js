@@ -30,11 +30,11 @@ const editChore = () => {
             <form>
                 <h2>edit <span>${title}</span></h2>
                 <label for="edit-title">Title</label>
-                    <input id="edit-title" type="text" placeholder="${title}">
+                    <input id="edit-title" type="text" value="${title}">
                 <label for="edit-desc">Desc</label>
-                    <textarea id="edit-desc" placeholder="${desc}"></textarea>
+                    <textarea id="edit-desc" value="${desc}"></textarea>
                 <label for="edit-date">Date</label>
-                    <input id="edit-date" type="date" placeholder="${date}">
+                    <input id="edit-date" type="date" value="${date}">
                 <label for="edit-priority">Priority</label>
                     <select id="edit-priority">
                         <option value="" disabled selected>Select a new priority</option>
