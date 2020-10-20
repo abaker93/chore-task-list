@@ -24,7 +24,6 @@ const firebaseFirestore = () => {
         db.collection(collectionPath)
             .where('title', '!=', null)
             .onSnapshot(querySnapshot => {
-                console.log('onShanpshot start')
                 tasks = []
                 querySnapshot.forEach(doc => {
                     const id = doc.id
@@ -51,7 +50,6 @@ const firebaseFirestore = () => {
                     const li = document.createElement('li')
                     li.classList.add('chore-item')
                     li.setAttribute('id', tasks[i].id)
-                    console.log(tasks[i])
 
                     if (tasks[i].complete) {
                         li.classList.add('checked')
@@ -76,11 +74,10 @@ const firebaseFirestore = () => {
                     container.append(li)
                 }
                 completeChore()
-                displayChoreDetails()
                 createChore()
+                displayChoreDetails()
             })
     }
-    
     readChoresDB()
 }
 
