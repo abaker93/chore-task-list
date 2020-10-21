@@ -77,11 +77,12 @@ aside#aside {
 	main {
 		padding: 30px;
 
-		div {
+		li {
 			margin-bottom: 20px;
 			cursor: pointer;
+			position: relative;
 
-			svg {
+			.list-icon {
 				height: 30px;
 				vertical-align: middle;
 				margin-right: 10px;
@@ -91,6 +92,24 @@ aside#aside {
 				font-size: 25px;
 				color: $white;
 				vertical-align: middle;
+			}
+
+			.list-details-btn {
+				height: 20px;
+				fill: transparent;
+				cursor: pointer;
+				position: absolute;
+				top: 5px;
+				right: 0;
+			}
+
+			&:hover {
+
+				.list-details-btn {
+					fill: $lt-blue;
+					transition: all ease-in-out 0.1s;
+				}
+
 			}
 
 		}

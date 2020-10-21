@@ -1,4 +1,5 @@
 import { userID } from './firebaseAuth'
+
 import { createChore } from './firestore/createChore'
 import { completeChore } from './firestore/completeChore'
 import { displayChoreDetails } from './firestore/displayChoreDetails'
@@ -14,12 +15,12 @@ const db = firebase.firestore()
 
 const getCollectionPath = list => {
     collectionPath = userID + '/lists/' + list
-};
+}
 
 const firebaseFirestore = () => {
 
     const readChoresDB = () => {
-        getCollectionPath(list);
+        getCollectionPath(list)
         
         db.collection(collectionPath)
             .where('title', '!=', null)

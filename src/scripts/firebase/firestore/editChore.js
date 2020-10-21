@@ -1,9 +1,8 @@
 import {
     db,
-    collectionPath,
     tasks
-} from '../firebaseFirestore';
-// import { displayChores } from './displayChores'
+} from '../firebaseFirestore'
+import { collectionPath } from '../firebaseCollections'
 
 const editChore = () => {
     const btn = document.getElementById('edit-chore-modal-btn')

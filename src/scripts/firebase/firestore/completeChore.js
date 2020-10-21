@@ -1,7 +1,5 @@
-import {
-    db,
-    collectionPath
-} from '../firebaseFirestore';
+import { db } from '../firebaseFirestore';
+import { collectionPath } from '../firebaseCollections';
 
 // Mark chores as complete or incomplete and update database
 const completeChore = () => {

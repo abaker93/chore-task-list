@@ -32,6 +32,8 @@ const firebaseAuth = new Promise((resolve, reject) => {
 
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
+
+        document.getElementById('chore-list').innerHTML = ''
     })
 
     // Logout when authenticated user is logged in

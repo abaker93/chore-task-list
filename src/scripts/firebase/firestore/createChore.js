@@ -1,7 +1,5 @@
-import {
-	collectionPath,
-	db
-} from '../firebaseFirestore'
+import { db } from '../firebaseFirestore'
+import { collectionPath } from '../firebaseCollections';
 
 const createChore = () => {
 	const createChoreBtn = document.getElementById('new-chore-modal-btn')
